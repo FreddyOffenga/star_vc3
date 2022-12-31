@@ -1,0 +1,26 @@
+Star64
+
+Author: F#READY / Atari Invasion
+Category: Christmas Challenge
+System: Atari XL/XE
+Language: 6502 Assembly / MADS Assembler
+
+Len source code: 233 bytes
+Len exe file: 64 bytes
+Len code only: 58 bytes
+
+Instructions:
+Use Altirra emulator with Rev.2 OS ROM (default Atari XL/XE OS).
+In the emulator:
+- System > Firmware > Firmware images... 
+- install REV02.ROM under 'Atari XL/XE OS ver.2'.
+- File > Boot image
+- Choose: star64.xex
+
+Description:
+One half of the 17x17 matrix is encoded in bits (0=space, 1=star).
+During decoding/printing, the data is placed on the stack.
+The second half of the matrix is then printed by pulling the data from the stack.
+
+Comments:
+I also made a version with a different approach, but this one is smaller :)
