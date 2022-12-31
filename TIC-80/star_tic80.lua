@@ -1,0 +1,1 @@
+function f(a,b)return print("*",a*8,b*8,4)end TIC=load"cls()y=16 for u=4,16 do for x=4,u do z=16-y w=16-x f(x,y)f(x,z)f(w,y)f(w,z)end y=y-1 end"

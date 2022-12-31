@@ -1,0 +1,22 @@
+Star TIC80
+
+Author: F#READY / Atari Invasion
+Category: Christmas Challenge
+System: TIC80
+Language: Lua
+
+Len source code: 144 bytes
+Len exe file: 122 bytes
+Len code only: 144 bytes
+
+Instructions:
+Download and install TIC80 from the website: https://tic80.com/create
+Copy/paste the code in star_tic80.lua in the editor and RUN.
+Or double-click/load the cartridge: star_tic80.tic
+
+Description:
+The star is drawn by printing four overlapping triangles.
+Since the triangles are all mirrored copies, only one is calculated and the '*' symbols are printed at four positions.
+
+Comments:
+I didn't use any of the compression tools to make it smaller.
