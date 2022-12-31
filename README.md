@@ -1,2 +1,2 @@
-# star_vc3
-Star for Vintage Computer Christmas Challenge
+# Star
+Star for  the Vintage Computer Christmas Challenge
