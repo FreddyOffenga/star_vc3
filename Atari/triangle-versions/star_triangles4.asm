@@ -1,0 +1,79 @@
+; Silver Star triangles 4
+; https://logiker.com/Vintage-Computing-Christmas-Challenge-2022
+
+; F#READY 2022-12-18
+
+; 72 bytes
+
+; other approach, draw four triangles
+
+ROWCRS      = $54       ; byte
+y_position  = ROWCRS    ; alias
+
+COLCRS      = $55       ; word
+x_position  = COLCRS    ; alias
+
+OLDROW      = $5a       ; byte
+y_start     = OLDROW    ; alias
+
+OLDCOL      = $5b       ; word
+x_start     = OLDCOL    ; alias
+
+ATACHR      = $2fb      ; drawing color
+draw_color  = ATACHR    ; alias
+
+clear_scr   = $f420     ; zero screen memory
+draw_to     = $f9c2     ; $f9bf (stx FILFLG)
+plot_pixel  = $f1d8
+            
+            org $80
+
+main
+            jsr clear_scr
+
+            lda #42
+            sta draw_color   
+
+draw_all           
+            lda #12
+            sta new_y
+next_x = *+1
+            lda #12
+            sta new_x
+            
+plot_four
+
+new_y = *+1
+            lda #12
+            sta y_position
+new_x = *+1
+            lda #12
+            clc
+            adc #4
+            pha
+            jsr store_plot
+
+            lda #16
+            sbc x_position
+            jsr store_plot
+
+            lda #16
+            sbc y_position
+            sta y_position            
+            jsr plot_pixel
+
+            pla                       
+            jsr store_plot
+               
+            dec new_y
+            dec new_x
+            bpl plot_four
+
+            dec next_x
+            bne draw_all      
+               
+loop        bvc loop
+
+store_plot
+            sta x_position
+            jmp plot_pixel
